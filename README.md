@@ -1,2 +1,2 @@
 # Recruitment-System
-I develop Recruitment System in xamarin form run (Android &amp; Ios).
+I develop Recruitment-System in xamarin form. This Recruitment-System run multiple plateforme like Android & Ios.
