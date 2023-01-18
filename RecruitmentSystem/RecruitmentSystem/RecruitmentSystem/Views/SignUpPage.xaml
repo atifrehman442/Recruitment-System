@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasBackButton="False"
+             x:Class="RecruitmentSystem.Views.SignUpPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="10">
+                <StackLayout >
+                  <Label Text="Recruitment" HorizontalTextAlignment="Center" TextColor="#1e549f" FontSize="30" FontAttributes="Bold"/>
+                  <Label Text="System" HorizontalTextAlignment="Center" TextColor="#1e549f" FontSize="30" FontAttributes="Bold"/>
+
+                    <Entry Text="{Binding Fullname}" Placeholder="Enter FullName" Keyboard="Text" x:Name="FullName" TextChanged="FullNameTextChanged" Margin="0,40,0,0"/>
+
+                        <Label Text="{Binding FullNameAlertMessage}" x:Name="FullNameAlertMessage"  TextColor="Red"  Margin="0,0,0,0" />
+
+                    <Entry Text="{Binding Email}" Placeholder="Enter Email" Keyboard="Email" x:Name="Email" TextChanged="EmailTextChanged"/>
+
+                        <Label Text="{Binding EmailAlertMessage}" x:Name="EmailAlertMessage"  TextColor="Red"  Margin="0,0,0,0" />
+
+                    <Entry Text="{Binding Phone}" Placeholder="Enter Phone" x:Name="Phone" Keyboard="Numeric" TextChanged="PhoneTextChanged"/>
+
+                        <Label Text="{Binding PhoneAlertMessage}" x:Name="PhoneAlertMessage"  TextColor="Red"  Margin="0,0,0,0" />
+
+                    <Grid>
+                        <Entry Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="9" Text="{Binding Password}" IsPassword="True" Placeholder="Enter Password" x:Name="Password" TextChanged="PasswordTextChanged"/>
+
+
+                        <ImageButton Grid.Row="0" Grid.Column="8"   Source="eyeoff.png" HeightRequest="20" HorizontalOptions="EndAndExpand" 
+                             BackgroundColor="Transparent" Clicked="ImageButtonClicked" />
+                    </Grid>
+
+                    <Label Text="{Binding PasswordAlertMessage}" x:Name="PasswordAlertMessage"  TextColor="Red"  Margin="0,0,0,0" />
+
+                    <Grid>
+                        <Entry Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="9" Text="{Binding Confirmpassword}" IsPassword="True" Placeholder="Enter ConfirmPassword" x:Name="ConfirmPassword" TextChanged="ConfirmPasswordTextChanged"/>
+
+
+                        <ImageButton Grid.Row="0" Grid.Column="8"   Source="eyeoff.png" HeightRequest="20" HorizontalOptions="EndAndExpand" 
+                             BackgroundColor="Transparent" Clicked="ImageButtonClicked1" />
+                    </Grid>
+
+                    <Label Text="{Binding ConfirmPasswordAlertMessage}" x:Name="ConfirmPasswordAlertMessage"  TextColor="Red"  Margin="0,0,0,0" />
+
+                    <Picker Title="Select User" SelectedItem="{Binding User}" x:Name="User" SelectedIndexChanged="User_SelectedIndexChanged">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Manager</x:String>
+                                <x:String>Applicant</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+
+                    <Label Text="{Binding UserAlertMessage}" x:Name="UserAlertMessage"  TextColor="Red"  Margin="0,0,0,0" />
+
+                    <Button Text="SignUp" BackgroundColor="#1e549f" TextColor="White" CornerRadius="10" Command="{Binding CommandSignUp}"/>
+                    <Label>
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="allready member?">
+
+                                </Span>
+                                <Span Text="Login Now" TextColor="#1e549f">
+                                    <Span.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="TapGestureSignup" />
+                                    </Span.GestureRecognizers>
+                                </Span>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

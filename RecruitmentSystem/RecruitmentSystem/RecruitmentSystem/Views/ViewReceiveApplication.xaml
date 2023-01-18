@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RecruitmentSystem.Views.ViewReceiveApplication">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Receive Application" FontAttributes="Bold" FontSize="Large" HorizontalOptions="Center" TextColor="Black" Margin="0,20,0,0"/>
+            <ListView ItemsSource="{Binding ReceiveApplication}" RowHeight="240">
+                <ListView.ItemTemplate>
+                    <DataTemplate >
+                        <ViewCell>
+                            <Frame
+                            InputTransparent="True"
+                            Margin="10,5" Padding="15" CornerRadius="15"
+                            HeightRequest="125" BackgroundColor="#2e79ba"
+                                >
+                                <StackLayout HorizontalOptions="Center">
+                                    <StackLayout Orientation="Horizontal" >
+                                        <Label Text="Applicant Name =" FontAttributes="Bold" FontSize="Medium"/>
+                                        <Label Text="{Binding ApplicantName}" FontAttributes="Bold" FontSize="Medium"/>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" >
+                                        <Label Text="Qualification =" FontAttributes="Bold" FontSize="Medium"/>
+                                        <Label Text="{Binding Qualification}" FontAttributes="Bold" FontSize="Medium"/>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" >
+                                        <Label Text="Currently Employee =" FontAttributes="Bold" FontSize="Medium"/>
+                                        <Label Text="{Binding CurrentlyEmployee}" FontAttributes="Bold" FontSize="Medium"/>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" >
+                                        <Label Text="Current Salary =" FontAttributes="Bold" FontSize="Medium"/>
+                                        <Label Text="{Binding CurrentSalary}" FontAttributes="Bold" FontSize="Medium"/>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" >
+                                        <Label Text="Expected Salary =" FontAttributes="Bold" FontSize="Medium"/>
+                                        <Label Text="{Binding ExpectedSalary}" FontAttributes="Bold" FontSize="Medium"/>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" >
+                                        <Label Text="Relocate =" FontAttributes="Bold" FontSize="Medium"/>
+                                        <Label Text="{Binding Relocate}" FontAttributes="Bold" FontSize="Medium"/>
+                                    </StackLayout>
+                                </StackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

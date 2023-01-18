@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasBackButton="False"
+             x:Class="RecruitmentSystem.Views.LoginPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <StackLayout Padding="25" Margin="0,80,0,0">
+
+                    <Label Text="Recruitment" HorizontalTextAlignment="Center" TextColor="#1e549f" FontSize="30" FontAttributes="Bold"/>
+                    <Label Text="System" HorizontalTextAlignment="Center" TextColor="#1e549f" FontSize="30" FontAttributes="Bold"/>
+
+                    <Entry  Text="{Binding EnterEmail}" Placeholder="Enter Email" x:Name="emailentry" Keyboard="Email"  WidthRequest="340" TextChanged="emailentry_TextChanged" Margin="0,30,0,0"/>
+
+                    <Label Text="{Binding EmailAlertMessage}" x:Name="EmailAlertMessage"  TextColor="Red" />
+
+                    <Grid>
+                        <Entry Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="9"  x:Name="MyEntry" Text="{Binding EnterPassword}" Placeholder="Enter Password" IsPassword="True" WidthRequest="340" TextChanged="MyEntry_TextChanged"/>
+
+
+                        <ImageButton Grid.Row="0" Grid.Column="8"   Source="eyeoff.png" HeightRequest="20" HorizontalOptions="EndAndExpand" 
+                             BackgroundColor="Transparent" Clicked="ImageButton_Clicked" />
+                    </Grid>
+                    <Label Text="{Binding PasswordAlertMessage}" x:Name="PasswordAlertMessage"  TextColor="Red"  />
+
+                    <Button  Text="LogIn" BackgroundColor="#1e549f" TextColor="White" CornerRadius="15" Command="{Binding LoginCommand}" Margin="0,10,0,0"  />
+
+
+                    <StackLayout Margin="0,0,0,0">
+                        <Label>
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Do Not Have Account? ">
+
+                                    </Span>
+                                    <Span Text="Sign Up Now" TextColor="#1e549f">
+                                        <Span.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="TapGestureLogin"/>
+                                        </Span.GestureRecognizers>
+                                    </Span>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </StackLayout>
+                </StackLayout>
+
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

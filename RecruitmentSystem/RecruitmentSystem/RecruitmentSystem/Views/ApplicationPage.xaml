@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RecruitmentSystem.Views.ApplicationPage">
+    <ContentPage.Content>
+        <ScrollView>
+                <StackLayout Padding="10">
+
+                    <Label Text="Apply Job" FontAttributes="Bold" FontSize="Large" HorizontalOptions="Center" TextColor="Black" Margin="0,20,0,0"/>
+
+                    <Entry Text="{Binding Qualification}" x:Name="Qualification"  Placeholder="Enter Qualification" Margin="0,40,0,0" TextChanged="Qualification_TextChanged"/>
+                    <Label Text="{Binding QualificationAlertMessage}" x:Name="QualificationAlertMessage"  TextColor="Red" />
+
+                    <Picker Title="Select Currently Employee" SelectedItem="{Binding CurrentlyEmployee}" x:Name="CurrentlyEmployee" SelectedIndexChanged="CurrentlyEmployee_SelectedIndexChanged">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>No</x:String>
+                                <x:String>Yes</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                    <Label Text="{Binding CurrentlyEmployeeAlertMessage}" x:Name="CurrentlyEmployeeAlertMessage"  TextColor="Red"  Margin="0,0,0,0" />
+
+                    <Entry Text="{Binding CurrentSalary}" x:Name="CurrentSalary" Placeholder="Enter  Current Salary" TextChanged="CurrentSalary_TextChanged"/>
+                    <Label Text="{Binding CurrentSalaryAlertMessage}" x:Name="CurrentSalaryAlertMessage"  TextColor="Red" />
+
+                    <Entry Text="{Binding ExpectedSalary}" x:Name="ExpectedSalary" Placeholder="Enter  Expected Salary" TextChanged="ExpectedSalary_TextChanged"/>
+                    <Label Text="{Binding ExpectedSalaryAlertMessage}" x:Name="ExpectedSalaryAlertMessage"  TextColor="Red" />
+
+                <Picker Title="Select Is willing to relocate" SelectedItem="{Binding Relocate}" x:Name="Relocate" SelectedIndexChanged="Relocate_SelectedIndexChanged">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>No</x:String>
+                            <x:String>Yes</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+                <Label Text="{Binding RelocateAlertMessage}" x:Name="RelocateAlertMessage"  TextColor="Red" />
+
+                <Button Text="Submit" BackgroundColor="#1e549f" TextColor="White" CornerRadius="10" Command="{Binding ApplyCommand}" />
+                </StackLayout>
+            </ScrollView>
+        </ContentPage.Content>
+</ContentPage>

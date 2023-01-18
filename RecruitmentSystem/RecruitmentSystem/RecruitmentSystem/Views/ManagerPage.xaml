@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasBackButton="False"
+             x:Class="RecruitmentSystem.Views.ManagerPage">
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal" Padding="10">
+            <StackLayout HorizontalOptions="Start">
+                <Label >
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Logout" TextColor="white">
+                                <Span.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureLogout"/>
+                                </Span.GestureRecognizers>
+                            </Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </StackLayout>
+
+            <StackLayout HorizontalOptions="CenterAndExpand" Margin="40,0,0,0">
+                <Label Text="Manager" TextColor="white"  FontAttributes="Bold" FontSize="Medium"/>
+            </StackLayout>
+
+            <StackLayout HorizontalOptions="EndAndExpand">
+                <Label >
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Post" TextColor="white">
+                                <Span.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGesturePost"/>
+                                </Span.GestureRecognizers>
+                            </Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </StackLayout>
+        </StackLayout>
+    </NavigationPage.TitleView>
+    
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView ItemsSource="{Binding Jobs}"  RowHeight="130" x:Name="listview"
+                      ItemTapped="listview_ItemTapped">
+                <ListView.ItemTemplate>
+                    <DataTemplate >
+                        <ViewCell>
+                            <Frame
+                            InputTransparent="True"
+                            Margin="10,5" Padding="15" CornerRadius="15"
+                            HeightRequest="125" BackgroundColor="#2e79ba"
+                                >
+                                <StackLayout HorizontalOptions="Center">
+                                    <StackLayout Orientation="Horizontal" >
+                                        <Label Text="Job Title =" FontAttributes="Bold" FontSize="Medium"/>
+                                        <Label Text="{Binding JobTitle}" FontAttributes="Bold" FontSize="Medium"/>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" >
+                                        <Label Text="Vacancies =" FontAttributes="Bold" FontSize="Medium"/>
+                                        <Label Text="{Binding Vacancies}" FontAttributes="Bold" FontSize="Medium"/>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" >
+                                        <Label Text="Deadline =" FontAttributes="Bold" FontSize="Medium"/>
+                                        <Label Text="{Binding Deadline}" FontAttributes="Bold" FontSize="Medium"/>
+                                    </StackLayout>
+                                   
+                                </StackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

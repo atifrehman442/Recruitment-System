@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:syncfusion="clr-namespace:Syncfusion.SfCalendar.XForms;assembly=Syncfusion.SfCalendar.XForms"
+             x:Class="RecruitmentSystem.Views.JobPostPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="10">
+
+                <Label Text="Job Post" FontAttributes="Bold" FontSize="Large" HorizontalOptions="Center" TextColor="Black" Margin="0,20,0,0"/>
+
+                <Entry Text="{Binding JobTitle}" x:Name="JobTitle"  Placeholder="Enter Job title" Margin="0,40,0,0" TextChanged="JobTitle_TextChanged"/>
+                <Label Text="{Binding JobTitleAlertMessage}" x:Name="JobTitleAlertMessage"  TextColor="Red" />
+                
+                <Entry Text="{Binding Vacancies}" x:Name="Vacancies" Placeholder="Enter  No of vacancies" TextChanged="Vacancies_TextChanged"/>
+                <Label Text="{Binding VacanciesAlertMessage}" x:Name="VacanciesAlertMessage"  TextColor="Red" />
+                
+                <Label Text="Select Deadline Date"  FontSize="Large" TextColor="Black" />
+                <syncfusion:SfCalendar SelectedDate="{Binding Deadline}" />
+
+                <Button Text="Submit" BackgroundColor="#1e549f" TextColor="White" CornerRadius="10" Command="{Binding JobPostCommand}" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
